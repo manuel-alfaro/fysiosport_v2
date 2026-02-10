@@ -1905,6 +1905,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // Logout Button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                console.log('User signed out.');
+                window.location.href = 'index.html';
+            }).catch((error) => {
+                console.error('Sign out error', error);
+            });
+        });
+    }
+
     // Patient Buttons
     const btnNewPatient = document.getElementById('btn-new-patient-workspace');
     if (btnNewPatient) {
