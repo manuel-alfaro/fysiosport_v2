@@ -1,0 +1,145 @@
+/* Inspired by styrketrening_app style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-hover: #2563eb;
+    --text-white: #ffffff;
+    --text-gray: #d1d5db;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    /* Fallback if image missing */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');
+    /* Using a generic gym/dark background from Unsplash for now */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    /* Glass Effect */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding: 40px;
+    border-radius: 0px;
+    /* Square edges as per styrketrening_app */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--text-white);
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.glass-input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.glass-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 2px;
+    background: var(--primary-blue);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    background: var(--primary-blue-hover);
+}
+
+.toggle-auth {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.toggle-auth a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.toggle-auth a:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+#auth-message {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+.error-message {
+    color: #ef4444;
+    /* Red-500 */
+}
+
+.success-message {
+    color: #10b981;
+    /* Green-500 */
+}

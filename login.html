@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logga in - Fysiosport</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css2?family=Avenir:wght@400&family=Futura:wght@400&display=swap">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2 id="form-title">Logga in</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">E-post</label>
+                <input type="email" id="email" required placeholder="namn@exempel.se" class="glass-input">
+            </div>
+            <div class="form-group">
+                <label for="password">Lösenord</label>
+                <input type="password" id="password" required placeholder="********" class="glass-input">
+            </div>
+            <button type="submit" class="btn-primary" id="submit-btn">Logga in</button>
+        </form>
+        <div id="auth-message"></div>
+        <div class="toggle-auth">
+            <span id="toggle-text">Har du inget konto?</span>
+            <a id="toggle-btn">Registrera dig</a>
+        </div>
+    </div>
+
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
