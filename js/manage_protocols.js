@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sidebar Navigation (Basic Links)
     ['save-data-sidebar-btn', 'import-data', 'export-data', 'clear-form', 'pdf-preview'].forEach(id => {
         const btn = document.getElementById(id);
-        if (btn) btn.addEventListener('click', () => window.location.href = 'index.html');
+        if (btn) btn.addEventListener('click', () => window.location.href = 'dashboard.html');
     });
     document.getElementById('logout-btn')?.addEventListener('click', () => {
         signOut(auth).then(() => window.location.href = 'index.html');

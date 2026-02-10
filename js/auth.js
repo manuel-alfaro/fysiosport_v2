@@ -26,13 +26,13 @@ if (authForm) {
             if (isLoginMode) {
                 await signInWithEmailAndPassword(auth, email, password);
                 // Redirect on success (onAuthStateChanged will handle it generally, but we can force it here for speed)
-                window.location.href = 'index.html';
+                window.location.href = 'dashboard.html';
             } else {
                 await createUserWithEmailAndPassword(auth, email, password);
                 authMessage.textContent = 'Konto skapat! Loggar in...';
                 authMessage.className = 'success-message';
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = 'dashboard.html';
                 }, 1000);
             }
         } catch (error) {
