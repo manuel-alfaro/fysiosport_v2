@@ -450,7 +450,7 @@ function renderPreview(test) {
         fig = graphTemplates['three-bar'].create(data, config.data);
     } else {
         console.warn(`Unknown chart type: ${config.type}`);
-        plotDiv.innerHTML = `<div style="text-align:center; padding-top:40px; color:var(--danger-color);"><i class="fas fa-exclamation-triangle" style="font-size:3rem; margin-bottom:10px;"></i><br>Stöds inte: ${config.type}</div>`;
+        plotDiv.innerHTML = `<div style="text-align:center; padding-top:40px; color:var(--danger-color);"><i class="fas fa-exclamation-triangle" style="font-size:3rem; margin-bottom:10px;"></i><br>Stöds inte: ${config.type}<br><small>Version: 1.2</small></div>`;
         return;
     }
 
