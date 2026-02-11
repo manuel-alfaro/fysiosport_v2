@@ -430,6 +430,16 @@ function renderPreview(test) {
         fig = createBilateralDualAxisChart(config.data.chartData, config.data);
     } else if (config.type === 'paired-bar') {
         fig = createPage2CustomBarChart(config.data.chartData, config.data);
+    } else if (config.type === 'single-bars-3') {
+        // Use generic values for preview if not present
+        const data = config.data.chartData || { values: [10, 15, 12] };
+        fig = graphTemplates['single-bars-3'].create(data, config.data);
+    } else if (config.type === 'grouped-bar-3') {
+        const data = config.data.chartData || { labels: ['Test 1', 'Test 2', 'Test 3'], vaValues: [10, 12, 11], hoValues: [11, 13, 12] };
+        fig = createGroupedBarChart(data, config.data);
+    } else if (config.type === 'three-bar') {
+        const data = config.data.chartData || { leftVal: 10, rightVal: 12, bothVal: 20 };
+        fig = graphTemplates['three-bar'].create(data, config.data);
     } else {
         console.warn(`Unknown chart type: ${config.type}`);
         plotDiv.innerHTML = `<div style="text-align:center; padding-top:40px; color:var(--danger-color);"><i class="fas fa-exclamation-triangle" style="font-size:3rem; margin-bottom:10px;"></i><br>Stöds inte: ${config.type}</div>`;
