@@ -417,6 +417,8 @@ function renderPreview(test) {
         return;
     }
 
+    console.log("DEBUG: renderPreview called for type:", config.type, "with config:", config);
+
     // === HANDLE CHART TYPES ===
     let fig;
 
@@ -431,9 +433,15 @@ function renderPreview(test) {
     } else if (config.type === 'paired-bar') {
         fig = createPage2CustomBarChart(config.data.chartData, config.data);
     } else if (config.type === 'single-bars-3') {
+        console.log("DEBUG: Rendering single-bars-3");
         // Use generic values for preview if not present
         const data = config.data.chartData || { values: [10, 15, 12] };
-        fig = graphTemplates['single-bars-3'].create(data, config.data);
+        try {
+            fig = graphTemplates['single-bars-3'].create(data, config.data);
+            console.log("DEBUG: single-bars-3 fig created:", fig);
+        } catch (e) {
+            console.error("DEBUG: Error creating single-bars-3:", e);
+        }
     } else if (config.type === 'grouped-bar-3') {
         const data = config.data.chartData || { labels: ['Test 1', 'Test 2', 'Test 3'], vaValues: [10, 12, 11], hoValues: [11, 13, 12] };
         fig = createGroupedBarChart(data, config.data);
@@ -481,7 +489,23 @@ function getPreviewConfig(testId) {
             };
             previewConfig.data.yTitle = config.yAxisTitle;
         } else if (graphType === 'grouped-bar-3') {
+            // FIXED: Structure must match createGroupedBarChart expectations
+            previewConfig.data.chartData = {
+                labels: ['Försök 1', 'Försök 2', 'Försök 3'],
+                vaValues: [100, 105, 102],
+                hoValues: [110, 112, 115]
+            };
+            previewConfig.data.yTitle = config.yAxisTitle;
+        } else if (graphType === 'single-bars-3') {
+            // FIXED: Structure for single-bars-3
+            previewConfig.data.chartData = { values: [85, 90, 88] };
+            previewConfig.data.labels = config.metricNames || ['1', '2', '3'];
+            previewConfig.data.yTitle = config.yAxisTitle;
+        } else if (graphType === 'three-bar') {
+            // FIXED: Structure for three-bar (Left, Right, Both)
             previewConfig.data.chartData = { leftVal: 100, rightVal: 110, bothVal: 220 };
+            previewConfig.data.labels = config.metricNames || ['Vänster', 'Höger', 'Båda'];
+            previewConfig.data.yAxisTitle = config.yAxisTitle;
         } else if (graphType === 'single-bar' || graphType === 'paired-bar') {
             previewConfig.data.chartData = { leftVal: 100, rightVal: 110 };
             previewConfig.data.metricName = config.metricNames?.[0] || 'Värde';
