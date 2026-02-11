@@ -775,8 +775,8 @@ h3.test-title {
 }
 
 .glass-dark .modal-form-item input {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    border-color: var(--medium-gray);
+    color: var(--text-color);
 }
 
 .modal-actions {
