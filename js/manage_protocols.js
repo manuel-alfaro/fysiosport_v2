@@ -1154,8 +1154,12 @@ function openEditTestModal(test) {
     document.getElementById('custom-test-name').value = test.name;
     document.getElementById('custom-test-type').value = test.graphType;
     renderGraphTypeGrid(); // Refresh grid selection state
-    document.getElementById('custom-test-category').value = test.category || 'Övrigt';
-    document.getElementById('custom-test-animal').value = config.animal || 'none';
+    const outputCategory = document.getElementById('custom-test-category');
+    if (outputCategory) outputCategory.value = test.category || 'Övrigt';
+
+    const animalInput = document.getElementById('custom-test-animal');
+    if (animalInput) animalInput.value = config.animal || 'none';
+
     document.getElementById('custom-yaxis-title').value = config.yAxisTitle;
     document.getElementById('custom-yaxis-2-title').value = config.y2Title || '';
 
